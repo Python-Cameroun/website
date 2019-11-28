@@ -154,12 +154,12 @@
 					<div class="card rounded-0">
 						<a href="#modal-speaker-1" data-toggle="modal" data-target="#modal-speaker-1"><img src="/static/images/speakers/avatar.png" class="card-img-top rounded-0" alt=""></a>
 						<div class="card-body">
-							<h5 class="card-title mb-2">Waiting Confirmation</h5>
+							<h5 class="card-title mb-2">Florentin Jiecheu</h5>
 							<div class="card-text mb-3">
-								<div class="meta">{% trans "Lead developer" %}</div>
+								<div class="meta">{% trans "Polytechnician Engineer" %}</div>
 								<div class="meta"><i>{% trans "Private" %}</i></div>
 							</div><!--//card-text-->
-							<a href="#modal-speaker-2" data-toggle="modal" data-target="#modal-speaker-2">Read more &rarr;</a>
+							<a href="#modal-speaker-2" data-toggle="modal" data-target="#modal-speaker-2">{% trans "Read more" %} &rarr;</a>
 						</div><!--//card-->
 						<div class="card-footer text-muted">
 							<ul class="social-list list-inline mb-0">
@@ -255,8 +255,8 @@
 						<div class="meta">
 							<h4 class="time mb-3">10:20 - 10:50</h4>
 							<div class="profile">
-								<a href="#modal-speaker-1" data-toggle="modal" data-target="#modal-speaker-1"><img class="profile-image rounded-circle  mb-2" src="/static/images/speakers/speaker-.jpg" alt=""></a>
-								<div class="name"><a class="theme-link" href="#modal-speaker-1" data-toggle="modal" data-target="#modal-speaker-1">Sarah Doe</a></div>
+								<a href="#modal-speaker-1" data-toggle="modal" data-target="#modal-speaker-1"><img class="profile-image rounded-circle  mb-2" src="/static/images/speakers/speaker-1.jpg" alt=""></a>
+								<div class="name"><a class="theme-link" href="#modal-speaker-1" data-toggle="modal" data-target="#modal-speaker-1">ELIE Cedric KOUEKAM</a></div>
 							</div><!--//profile-->
 						</div><!--//meta-->
 						<div class="content">
@@ -270,8 +270,8 @@
 						<div class="meta">
 							<h4 class="time mb-3">10:55 - 11:25</h4>
 							<div class="profile">
-								<a href="#modal-speaker-1" data-toggle="modal" data-target="#modal-speaker-1"><img class="profile-image rounded-circle  mb-2" src="/static/images/speakers/speaker-2.jpg" alt=""></a>
-								<div class="name"><a class="theme-link" href="#modal-speaker-2" data-toggle="modal" data-target="#modal-speaker-2">Sarah Doe</a></div>
+								<a href="#modal-speaker-2" data-toggle="modal" data-target="#modal-speaker-2"><img class="profile-image rounded-circle  mb-2" src="/static/images/speakers/avatar.png" alt=""></a>
+								<div class="name"><a class="theme-link" href="#modal-speaker-2" data-toggle="modal" data-target="#modal-speaker-2">Florentin Jiecheu</a></div>
 							</div><!--//profile-->
 						</div><!--//meta-->
 						<div class="content">
@@ -300,8 +300,8 @@
 						<div class="meta">
 							<h4 class="time mb-3">11:45 - 12:15</h4>
 							<div class="profile">
-								<a href="#modal-speaker-1" data-toggle="modal" data-target="#modal-speaker-1"><img class="profile-image rounded-circle  mb-2" src="/static/images/speakers/speaker-3.jpg" alt=""></a>
-								<div class="name"><a class="theme-link" href="#modal-speaker-3" data-toggle="modal" data-target="#modal-speaker-3">Sarah Doe</a></div>
+								<a href="#modal-speaker-1" data-toggle="modal" data-target="#modal-speaker-1"><img class="profile-image rounded-circle  mb-2" src="/static/images/speakers/avatar.png" alt=""></a>
+								<div class="name"><a class="theme-link" href="#modal-speaker-3" data-toggle="modal" data-target="#modal-speaker-3">Waiting confirmation</a></div>
 							</div><!--//profile-->
 						</div><!--//meta-->
 						<div class="content">
@@ -472,16 +472,16 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 id="speaker-1-ModalLabel" class="modal-title sr-only">Speaker Name</h4>
+					<h4 id="speaker-1-ModalLabel" class="modal-title sr-only">ELIE Cedric KOUEKAM</h4>
 				</div>
 				<div class="modal-body p-0">
 					<div class="media flex-column flex-md-row theme-bg-light p-4 p-lg-5">
 						<img class="profile-image mb-3 mb-md-0 mr-md-4 rounded-circle mx-auto" src="/static/images/speakers/speaker-1.jpg" alt="" />
 						
 						<div class="media-body text-center text-md-left mx-auto">
-							<h2 class="name mb-2">Speaker Name</h2>
-							<div class="meta">Job Title Or Position</div>
-							<div class="meta mb-2">Company Or Organization</div>
+							<h2 class="name mb-2">ELIE Cedric KOUEKAM</h2>
+							<div class="meta">{% trans "Software Engineer" %}</div>
+							<div class="meta mb-2"><i>{% trans "Private" %}</i></div>
 							<ul class="social-list list-inline mb-0">
 								<li class="list-inline-item"><a  href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
 								<li class="list-inline-item"><a  href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
@@ -491,8 +491,7 @@
 					</div><!--//media-->
 					
 					<div class="desc p-4 p-lg-5">
-						<p>You can put speaker's bio or talk related info here. Duis a mi quis metus porttitor eleifend. Pellentesque finibus ultrices imperdiet. Maecenas auctor tortor quis risus tincidunt, mattis mattis leo placerat. Fusce metus augue, sagittis eget enim vel, venenatis auctor est. In interdum felis massa, ac porta nunc pretium non. In fringilla orci vitae imperdiet malesuada. Vestibulum feugiat lobortis est, in sagittis nisi molestie vel. Mauris ultrices vitae lectus eu feugiat. Fusce semper, nisi at placerat mollis, augue elit pretium enim, eu pellentesque justo purus et lectus. </p>
-						<p class="mb-0">Donec neque magna, molestie vel varius ut, pretium a urna. Pellentesque placerat nunc eu condimentum pellentesque. Vivamus dictum nisl leo, id fermentum lectus porttitor et. Pellentesque tristique erat libero, condimentum porttitor nisl pharetra et.</p>
+						<p>I am an engineer and Python enthusiast.</p>
 					</div>
 				</div><!--//modal-body-->
 			</div><!--//modal-content-->
@@ -500,12 +499,44 @@
 	</div><!--//modal-->
 
 	<!-- Modal Speaker -->
-	<div class="modal modal-speaker modal-speaker-4" id="modal-speaker-4" tabindex="-1" role="dialog" aria-labelledby="speaker-1-ModalLabel" aria-hidden="true">
+	<div class="modal modal-speaker modal-speaker-2" id="modal-speaker-2" tabindex="-1" role="dialog" aria-labelledby="speaker-2-ModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 id="speaker-1-ModalLabel" class="modal-title sr-only">MATTON Jef</h4>
+					<h4 id="speaker-2-ModalLabel" class="modal-title sr-only">Florentin Jiecheu</h4>
+				</div>
+				<div class="modal-body p-0">
+					<div class="media flex-column flex-md-row theme-bg-light p-4 p-lg-5">
+						<img class="profile-image mb-3 mb-md-0 mr-md-4 rounded-circle mx-auto" src="/static/images/speakers/avatar.png" alt="" />
+						
+						<div class="media-body text-center text-md-left mx-auto">
+							<h2 class="name mb-2">Florentin Jiecheu</h2>
+							<div class="meta">{% trans "Polytechnician Engineer" %}</div>
+							<div class="meta mb-2"><i>{% trans "Private" %}</i></div>
+							<ul class="social-list list-inline mb-0">
+								<li class="list-inline-item"><a  href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+								<li class="list-inline-item"><a  href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+								<li class="list-inline-item"><a  href="#"><i class="fab fa-github fa-fw"></i></a></li>
+							</ul><!--//social-list--> 
+						</div><!--//media-body-->
+					</div><!--//media-->
+					
+					<div class="desc p-4 p-lg-5">
+						<p>{% trans "I started my career as Python lead developer during 4 years. Then i moved to another job and started my researchs in AI. I am also a StackOverflow contributor. I animate a small articial intelligence group and i like to share my knowledge and experience to the world." %}</p>
+					</div>
+				</div><!--//modal-body-->
+			</div><!--//modal-content-->
+		</div><!--//modal-dialog-->
+	</div><!--//modal-->
+
+	<!-- Modal Speaker -->
+	<div class="modal modal-speaker modal-speaker-4" id="modal-speaker-4" tabindex="-1" role="dialog" aria-labelledby="speaker-4-ModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 id="speaker-4-ModalLabel" class="modal-title sr-only">MATTON Jef</h4>
 				</div>
 				<div class="modal-body p-0">
 					<div class="media flex-column flex-md-row theme-bg-light p-4 p-lg-5">
