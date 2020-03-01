@@ -1,21 +1,30 @@
 {% extends "base/base.html" %}
+{% load i18n %}
 
-{% block title %}Welcome{% endblock %}
-
-{% block content %}
-<div class="container-fluid">
-	<div class="row h-100">
-		<div class="col-md-6 bg-primary h-100">
-			
-		</div>
-
-		<div class="col-md-6 bg-light h-100">
-			<div>
-				<form>
-					<input type="text" name="username" />
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-{% endblock %}
+        {% block main_container %}
+        <div class="main-container">
+            <section class="imageblock switchable feature-large height-100">
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                    <div class="background-image-holder"> <img alt="image" src="/static/base/img/sign-side.jpg"> </div>
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2>{% trans "Become a member of PyCM" %}<br></h2>
+                            <p class="lead">{% trans "Register and contribute to evolution of the Community" %}<br></p>
+                            <form>
+                                <div class="row">
+                                    <div class="col-12"> <input type="text" name="name" placeholder="{% trans 'Your name' %}"> </div>
+                                    <div class="col-12"> <input type="email" name="Email Address" placeholder="Email Address"> </div>
+                                    <div class="col-12"> <input type="password" name="password" placeholder="Password"> </div>
+                                    <div class="col-12"> <input type="password" name="password1" placeholder="Retype Password"> </div>
+                                    <div class="col-12"> <button type="submit" class="btn btn--primary type--uppercase">{% trans "Create account" %}</button> </div>
+                                    <div class="col-12 text-center"> <span class="type--fine-print">{% trans "By signing up, you agree to the" %} <a href="#">Terms of Service</a></span> </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        {% endblock %}

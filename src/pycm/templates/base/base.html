@@ -1,108 +1,184 @@
 {% load i18n %}
-{% load static %}
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% trans 'Signup' %}{% endblock %} - PyCM</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Site Description Here">
 
-<head>
-	{% block head %}
-	<title>{% block title %}Base{% endblock %} - pycm</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="currency exchange platform">
-	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
-	{% endblock %}
-</head>
+        {% block styles %}
+        <link href="/static/base/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/static/base/css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/static/base/css/socicon.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/static/base/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/static/base/css/flickity.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/static/base/css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/static/base/css/jquery.steps.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/static/base/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/static/base/css/custom.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {% endblock %}
 
+        {% block extra_styles %}
+        {% endblock %}
+        
+    </head>
 
-<body>
-	{% block header %}
-	<!-- header section -->
-	<header class="header--section">
-	    <nav class="header navbar navbar-expand-md navbar-expand-md bg-primary text-light">
-	        <div class="header--container container">
-	            <!-- Brand -->
-	            <a class="header--brand navbar-brand" href="/">mbengFX</a>
+    <body class=" ">
+        <a id="start"></a>
+        
+        {% block nav %}
+        <div class="nav-container ">
+            <div class="bar bar--sm visible-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3 col-md-2">
+                            <a href="index.html">
+                                <img class="logo logo-dark" alt="logo" src="/static/base/img/logo-dark.png" />
+                                <img class="logo logo-light" alt="logo" src="/static/base/img/logo-light.png" />
+                            </a>
+                        </div>
+                        <div class="col-9 col-md-10 text-right">
+                            <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs">
+                                <i class="icon icon--sm stack-interface stack-menu"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </div>
+            <!--end bar-->
+            <nav id="menu1" class="bar bar--sm bar-1 hidden-xs ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-2 hidden-xs">
+                            <div class="bar__module">
+                                <a href="index.html">
+                                    <img class="logo logo-dark" alt="logo" src="/static/base/img/logo-rect.png" />
+                                    <img class="logo logo-light" alt="logo" src="/static/base/img/logo-rect.png" />
+                                </a>
+                            </div>
+                            <!--end module-->
+                        </div>
+                        <div class="col-lg-11 col-md-12 text-right text-left-xs text-left-sm">
+                            <div class="bar__module">
+                                <ul class="menu-horizontal text-left">
+                                    <li class="dropdown">
+                                        <span class="">{% trans "Events" %}</span>
+                                    </li>
+                                    <li class="dropdown">
+                                        <span class="">{% trans "Projects" %}</span>
+                                    </li>
+                                    <li class="dropdown">
+                                        <span class="">{% trans "Members" %}</span>
+                                    </li>
+                                </ul>
+                            </div>
 
-	            <!-- Toggler/collapsibe Button -->
-	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-	                <span class="navbar-toggler-icon"></span>
-	            </button>
-	            <!-- Navbar links -->
-	            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-	                <ul class="header--ul navbar-nav ml-auto">
-                        <li class="nav-item">
-	                        <form action="{% url 'set_language' %}" method="post" class="">
-	                        {% csrf_token %}
-	                            <input name="next" type="hidden" value="{{ redirect_to }}" />
-	                            <input type="hidden" name="language" value="fr">
-	                            <a class="header--links nav-link" href="#" onclick="this.parentElement.submit()"><img src="/static/image/flags/fr.gif" width="25"></a>
-	                        </form>
-	                    </li>
-	                    <li class="nav-item">
-	                        <form action="{% url 'set_language' %}" method="post" class="">
-	                        {% csrf_token %}
-	                            <input name="next" type="hidden" value="{{ redirect_to }}" />
-	                            <input type="hidden" name="language" value="en">
-	                            <a class="header--links nav-link" href="#" onclick="this.parentElement.submit()"><img src="/static/image/flags/en.gif" width="25px"></a>
-	                        </form>
-	                    </li>
+                            {% block login_buttons %}
+                            <!--end module-->                            
+                            <div class="bar__module">
+                                <a class="btn btn--sm type--uppercase" href="/signin/">
+                                    <span class="btn__text">
+                                        {% trans "Login" %}
+                                    </span>
+                                </a>
+                                <a class="btn btn--sm btn--primary type--uppercase" href="/signup/">
+                                    <span class="btn__text">
+                                        {% trans "Register" %}
+                                    </span>
+                                </a>
+                            </div>
+                            <!--end module-->
+                            {% endblock %}
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </nav>
+            <!--end bar-->
+        </div>
+        {% endblock %}
 
-	                    <li class="nav-item">
-	                        <a class="header--links nav-link" href="/faq/">FAQ</a>
-	                    </li>
-	                    <li class="nav-item">
-	                        <a class="header--links nav-link" href="/orders/open/">{% trans "Marketplace" %}</a>
-	                    </li>
-	                    <li class="nav-item">
-	                        <a class="header--links nav-link" href="/privacy/">{% trans "Privacy" %}</a>
-	                    </li>
-	                    {% if user.is_authenticated %}
-	                    <li class="nav-item">
-	                        <a class="header--links nav-link" href="/dashboard/">{% trans "Dashboard" %}</a>
-	                    </li>
-	                    <li class="nav-item">
-	                        <a class="header--links nav-link" href="/signout/">{% trans "Sign out" %}</a>
-	                    </li>
-	                    {% else %}
-	                    <li class="nav-item">
-	                        <a class="header--links nav-link" href="/signin/">{% trans "Login" %}</a>
-	                    </li>
-	                    <li class="nav-item">
-	                        <a class="header--links nav-link" href="/signup/">{% trans "Sign up" %}</a>
-	                    </li>
-	                    {% endif %}
-	                </ul>
-	            </div>
-	        </div>
-	    </nav>
-	</header>
-    {% endblock %}
+        {% block main_container %}
+        <div class="main-container">
+            {% block main_content %}
+            {% endblock %}
+            
 
-    <!-- actual main body content section -->
-    {% block content %}
-    {% endblock %}
+            {% block footer %}
+            <footer class="footer-3 text-center-xs space--xs ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img alt="Image" class="logo" src="/static/base/img/logo-rect.png" />
+                            <a href="">Code of conduct</a>
+                        </div>
+                        <div class="col-md-6 text-right text-center-xs">
+                            <ul class="social-list list-inline list--hover">                                
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="socicon socicon-twitter icon icon--xs"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="socicon socicon-facebook icon icon--xs"></i>
+                                    </a>
+                                </li>                                
+                            </ul>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="type--fine-print">
+                                {% trans "Conquer the world with Python" %}
+                            </p>
+                        </div>
+                        <div class="col-md-6 text-right text-center-xs">
+                            <span class="type--fine-print">&copy;
+                                <span class="update-year"></span> PyCM</span>
+                            <a class="type--fine-print" href="#">Privacy Policy</a>
+                            <a class="type--fine-print" href="#">Legal</a>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </footer>
+            {% endblock %}
+        </div>
+        {% endblock %}
+        <!--<div class="loader"></div>-->
+        <a class="back-to-top inner-link" href="#start" data-scroll-class="100vh:active">
+            <i class="stack-interface stack-up-open-big"></i>
+        </a>
 
-    <!-- footer section -->
-    {% block footer %}
-    <footer class="section-footer">
-        <section class="footer container">
-              
-        </section>
-    </footer>
-    {% endblock %}
+        {% block scripts %}
+        <script src="/static/base/js/jquery-3.1.1.min.js"></script>
+        <script src="/static/base/js/flickity.min.js"></script>
+        <script src="/static/base/js/easypiechart.min.js"></script>
+        <script src="/static/base/js/parallax.js"></script>
+        <script src="/static/base/js/typed.min.js"></script>
+        <script src="/static/base/js/datepicker.js"></script>
+        <script src="/static/base/js/isotope.min.js"></script>
+        <script src="/static/base/js/ytplayer.min.js"></script>
+        <script src="/static/base/js/lightbox.min.js"></script>
+        <script src="/static/base/js/granim.min.js"></script>
+        <script src="/static/base/js/jquery.steps.min.js"></script>
+        <script src="/static/base/js/countdown.min.js"></script>
+        <script src="/static/base/js/twitterfetcher.min.js"></script>
+        <script src="/static/base/js/spectragram.min.js"></script>
+        <script src="/static/base/js/smooth-scroll.min.js"></script>
+        <script src="/static/base/js/scripts.js"></script>
+        {% endblock %}
 
-{% block scripts %}
-<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-<script type="text/javascript" src="/static/js/wow.min.js"></script>
-{% endblock %}
-
-{% block extra_scripts %}
-
-{% endblock %}
-
-</body>
-
+        {% block extra_scripts %}
+        {% endblock %}
+    </body>
 </html>
