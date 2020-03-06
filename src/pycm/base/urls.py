@@ -5,9 +5,10 @@ from base.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
-    path('', HomeView.as_view()),
-    path('signup/', SignupView.as_view()),
-    path('signin/', SigninView.as_view()),
-    path('events/', EventsView.as_view()),
-    path('event/', EventsView.as_view()),
+    path('', HomeView.as_view(), name='home'),
+    path('signup/', SignupView.as_view(), name='signup'),
+    path('signin/', SigninView.as_view(), name='signin'),
+    path('events/', EventsView.as_view(), name='events'),
+    path('event/', EventsView.as_view(), name='event'),
+    path('logout/', logout_view, name='logout')
 ]

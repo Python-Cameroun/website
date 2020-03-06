@@ -12,12 +12,17 @@
                         <div class="col-lg-5 col-md-7">
                             <h2>{% trans "Become a member of PyCM" %}<br></h2>
                             <p class="lead">{% trans "Register and contribute to evolution of the Community" %}<br></p>
-                            <form>
+                            <form method="POST">
+                                {% csrf_token %}
                                 <div class="row">
-                                    <div class="col-12"> <input type="text" name="name" placeholder="{% trans 'Your name' %}"> </div>
-                                    <div class="col-12"> <input type="email" name="Email Address" placeholder="Email Address"> </div>
-                                    <div class="col-12"> <input type="password" name="password" placeholder="Password"> </div>
-                                    <div class="col-12"> <input type="password" name="password1" placeholder="Retype Password"> </div>
+                                    <div class="col-12"> {{ form.username }} </div>
+                                    {{ form.errors.username }}
+                                    <div class="col-12"> {{ form.email }} </div>
+                                    {{ form.errors.email}}
+                                    <div class="col-12"> {{ form.password }} </div>
+                                    {{ form.errors.password}}
+                                    <div class="col-12"> {{ form.password1 }} </div>
+                                    {{ form.errors.password1 }}
                                     <div class="col-12"> <button type="submit" class="btn btn--primary type--uppercase">{% trans "Create account" %}</button> </div>
                                     <div class="col-12 text-center"> <span class="type--fine-print">{% trans "By signing up, you agree to the" %} <a href="#">Terms of Service</a></span> </div>
                                 </div>

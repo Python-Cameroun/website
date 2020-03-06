@@ -1,27 +1,40 @@
 {% extends "base/base.html" %}
 {% load i18n %}
 
-        {% block main_container %}
-        <div class="main-container">
-            <section class="imageblock switchable feature-large height-100">
-                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
-                    <div class="background-image-holder"> <img alt="image" src="/static/base/img/sign-side.jpg"> </div>
-                </div>
-                <div class="container pos-vertical-center">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-7">
-                            <h2>{% trans "Sign in to your account" %}<br></h2>                            
-                            <form>
-                                <div class="row">
-                                    <div class="col-12"> <input type="email" name="Email Address" placeholder="Email Address"> </div>
-                                    <div class="col-12"> <input type="password" name="Password" placeholder="Password"> </div>
-                                    <div class="col-12"> <button type="submit" class="btn btn--primary type--uppercase">{% trans "Sign in" %}</button> </div>
-                                    
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
+{% block main_container %}
+<div class="main-container">
+    <section class="imageblock switchable feature-large height-100">
+        <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+            <div class="background-image-holder"><img alt="image" src="/static/base/img/sign-side.jpg"></div>
         </div>
-        {% endblock %}
+        <div class="container pos-vertical-center">
+            <div class="row">
+                <div class="col-lg-5 col-md-7">
+                    <h2>{% trans "Sign in to your account" %}<br></h2>
+                    <form method="POST" action="{% url 'signin' %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <div class="col-12"><input type="email" name="email"
+                                                       placeholder="{% trans 'Email Address'%}"></div>
+                            <div class="col-12"><input type="password" name="password"
+                                                       placeholder="{% trans 'Password' %}"></div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn--primary type--uppercase">{% trans "Sign in" %}
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

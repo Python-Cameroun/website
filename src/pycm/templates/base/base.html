@@ -23,12 +23,12 @@
 
         {% block extra_styles %}
         {% endblock %}
-        
+
     </head>
 
     <body class=" ">
         <a id="start"></a>
-        
+
         {% block nav %}
         <div class="nav-container ">
             <div class="bar bar--sm visible-xs">
@@ -79,19 +79,29 @@
                             </div>
 
                             {% block login_buttons %}
-                            <!--end module-->                            
-                            <div class="bar__module">
-                                <a class="btn btn--sm type--uppercase" href="/signin/">
-                                    <span class="btn__text">
-                                        {% trans "Login" %}
-                                    </span>
-                                </a>
-                                <a class="btn btn--sm btn--primary type--uppercase" href="/signup/">
-                                    <span class="btn__text">
-                                        {% trans "Register" %}
-                                    </span>
-                                </a>
-                            </div>
+                            <!--end module-->
+                            {% if request.user.is_authenticated %}
+                                <div class="bar__module">
+                                    <a class="btn btn--sm btn--primary type--uppercase" href="{% url 'logout' %}">
+                                        <span class="btn__text">
+                                            {% trans "Logout" %}
+                                        </span>
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="bar__module">
+                                    <a class="btn btn--sm type--uppercase" href="/signin/">
+                                        <span class="btn__text">
+                                            {% trans "Login" %}
+                                        </span>
+                                    </a>
+                                    <a class="btn btn--sm btn--primary type--uppercase" href="/signup/">
+                                        <span class="btn__text">
+                                            {% trans "Register" %}
+                                        </span>
+                                    </a>
+                                </div>
+                            {% endif %}
                             <!--end module-->
                             {% endblock %}
                         </div>
@@ -108,7 +118,7 @@
         <div class="main-container">
             {% block main_content %}
             {% endblock %}
-            
+
 
             {% block footer %}
             <footer class="footer-3 text-center-xs space--xs ">
@@ -119,7 +129,7 @@
                             <a href="">Code of conduct</a>
                         </div>
                         <div class="col-md-6 text-right text-center-xs">
-                            <ul class="social-list list-inline list--hover">                                
+                            <ul class="social-list list-inline list--hover">
                                 <li class="list-inline-item">
                                     <a href="#">
                                         <i class="socicon socicon-twitter icon icon--xs"></i>
@@ -129,7 +139,7 @@
                                     <a href="#">
                                         <i class="socicon socicon-facebook icon icon--xs"></i>
                                     </a>
-                                </li>                                
+                                </li>
                             </ul>
                         </div>
                     </div>
