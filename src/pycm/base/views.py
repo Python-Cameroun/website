@@ -80,13 +80,21 @@ class EventView(View):
             return Http404()
         
         info = EventContactInfo.objects.filter(event=event).last()
-        feeds = Feedback.objects.filter(event=event, user=self.request.user)
-        if len(feeds) < 2:
-            can_give = True
+        
+        should_login = False
+        
+        if self.request.user.is_authenticated:
+            feeds = Feedback.objects.filter(event=event, user=self.request.user)
+            if len(feeds) < 2:
+                can_give = True
+            else:
+                can_give = False                
         else:
             can_give = False
+            should_login = True
         
-        ctx = {'event': event, 'info':info, 'can_give':can_give}
+        ctx = {'event': event, 'info':info, 'can_give':can_give,
+               'should_login':should_login}
         return render(self.request, "base/event.html", ctx)
     
     def post(self, request, *args, **kwargs):

@@ -126,6 +126,13 @@
                                     <div class="col-md-3"> <button class="btn btn--primary" type="submit">Submit Comment</button> </div>
                                 </form>
                             </div>
+                            {% else %}
+                            <div class="comments-form">
+                                <h4>Leave a feedback</h4>
+                                <div class="row">  
+                                    <div class="col-md-3"> <a href="{% url 'signin' %}"><button class="btn btn--primary pl-3 pr-3" type="button">Login to comment</button></a> </div>
+                                </form>
+                            </div>
                             {% endif %}
                         </div>
                     </div>
