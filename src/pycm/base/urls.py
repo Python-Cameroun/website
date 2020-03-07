@@ -9,6 +9,6 @@ urlpatterns = [
     path('signup/', SignupView.as_view(), name='signup'),
     path('signin/', SigninView.as_view(), name='signin'),
     path('events/', EventsView.as_view(), name='events'),
-    path('event/', EventsView.as_view(), name='event'),
+    path('event/<int:eid>/', EventView.as_view(), name='event'),
     path('logout/', logout_view, name='logout')
 ]

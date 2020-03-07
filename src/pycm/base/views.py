@@ -1,17 +1,21 @@
 from django.shortcuts import render, redirect, reverse
 from django.views import View
 from base.forms import SignUpForm
-from base.models import User, Profile
+from base.models import User, Profile, Event, Feedback, EventMedia, EventContactInfo
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from django.utils.translation import gettext as _
+from django.http import Http404
+import traceback
 
 
 class HomeView(View):
     """This is the view for Home page"""
 
     def get(self, request, *args, **kwargs):
-        return render(self.request, "base/home.html")
+        fea_event = Event.objects.filter(featured=True).last()
+        ctx = {'event':fea_event}
+        return render(self.request, "base/home.html", ctx)
 
 
 class SignupView(View):
@@ -62,16 +66,54 @@ class EventsView(View):
     """This is the view for signup"""
 
     def get(self, request, *args, **kwargs):
-        print("serving signup")
         return render(self.request, "base/events.html")
 
 
-class EventsView(View):
+class EventView(View):
     """This is the view for signup"""
 
     def get(self, request, *args, **kwargs):
-        print("serving signup")
-        return render(self.request, "base/event.html")
+        eid = self.kwargs.get('eid')
+        try:
+            event = Event.objects.get(pk=eid)
+        except:
+            return Http404()
+        
+        info = EventContactInfo.objects.filter(event=event).last()
+        feeds = Feedback.objects.filter(event=event, user=self.request.user)
+        if len(feeds) < 2:
+            can_give = True
+        else:
+            can_give = False
+        
+        ctx = {'event': event, 'info':info, 'can_give':can_give}
+        return render(self.request, "base/event.html", ctx)
+    
+    def post(self, request, *args, **kwargs):
+        try:
+            if not self.request.user.is_authenticated:
+                return self.get(request, *args, **kwargs)
+            
+            event = self.get_event()
+            if not event:
+                return Http404()
+            
+            content = self.request.POST.get('content')
+            feeds = Feedback.objects.filter(event=event, user=self.request.user)
+            if len(feeds) < 2:
+                Feedback.objects.create(user=self.request.user, event=event,
+                                        content=content)                                
+        except:
+            traceback.print_exc()
+            
+        return self.get(request, *args, **kwargs)
+            
+    def get_event(self):
+        eid = self.kwargs.get('eid')
+        try:
+            return Event.objects.get(pk=eid)
+        except:
+            return None
 
 
 def logout_view(request):

@@ -8,11 +8,11 @@
                     <div class="row justify-content-between">
                         <div class="col-lg-5 col-md-7">
                             <div class="mt--2">
-                                <h1>Developpement des interfaces graphiques<br></h1>
-                                <p class="lead"> Build lean, beautiful websites with a clean and contemporary look to suit a range of purposes. </p>
+                                <h1>{{ event.name }}<br></h1>
+                                <p class="lead"> {{ event.main_goal }} </p>
                             </div>
                         </div>
-                        <div class="col-lg-7 col-md-5 col-12"> <img alt="Image" src="/static/base/img/device-2.png"> </div>
+                        <div class="col-lg-7 col-md-5 col-12"> <img alt="Image" src="{{ event.image.url }}"> </div>
                     </div>
                 </div>
             </section>
@@ -21,35 +21,25 @@
                 <div class="container">
                     <div class="row justify-content-around">
                         <div class="col-md-8 col-lg-7">
-                            <h2>Two days of insightful discussion on the modern marketing landscape</h2>
-                            <p class="lead">
-                                Stack offers a clean and contemporary look to suit a range of purposes from corporate, tech startup, marketing site to digital storefront. Elements have been designed to showcase content in a diverse yet consistent manner.
-                            </p>
-                            <p class="lead">
-                                Multiple font and colour scheme options mean that dramatically altering the look of your site is just clicks away &mdash; Customizing your site in the included Variant Page Builder makes experimenting with styles and content arrangements dead simple.
-                            </p>
+                            {{ event.description|safe }}
                         </div>
                         <div class="col-md-4 col-lg-3">
                             <div class="text-block">
                                 <h5>Date</h5>
                                 <p>
-                                    October 2nd &mdash; 3rd, 2016
+                                    {{ event.start.date }}
                                 </p>
                             </div>
                             <div class="text-block">
                                 <h5>Location</h5>
                                 <p>
-                                    Suite 102
-                                    <br /> 364 Malvern Road
-                                    <br /> Armadale, Victoria
+                                    {{ event.location }}
                                 </p>
                             </div>
                             <div class="text-block">
-                                <h5>Opening Hours</h5>
+                                <h5>Starting Hour</h5>
                                 <p>
-                                    Monday - Thursday: 9am - 5pm
-                                    <br /> Friday: 9am - 3pm
-                                    <br /> Saturday - Sunday: CLOSED
+                                    {{ event.start.time }}
                                 </p>
                             </div>
                         </div>
@@ -67,18 +57,17 @@
                         </div>
                         <div class="col-lg-5 col-md-5">
                             <div class="switchable__text">
-                                <h3>119 Rathdowne Street
-                                    <br />Carlton, Victoria 3001</h3>
+                                <h3>{{ info.address|safe }}</h3>
                                 <p class="lead">
                                     E:
-                                    <a href="#">hello@stack.net</a>
-                                    <br /> P: +613 4827 2294
+                                    <a href="#">{{ info.email }}</a>
+                                    <br /> P: {{ info.number }}
                                 </p>
                                 <p class="lead">
-                                    Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days.
+                                    {{ info.text }}
                                 </p>
                                 <p class="lead">
-                                    We are open from 9am &mdash; 5pm week days.
+                                    {{ info.opened }}
                                 </p>
                             </div>
                         </div>
@@ -110,50 +99,34 @@
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-8">
                             <div class="comments">
-                                <h3>4 Feedbacks</h3>
+                                <h3>{{ event.feedback_set.all|length }} Feedbacks</h3>
                                 <ul class="comments__list">
+                                    {% for feed in event.feedback_set.all %}
                                     <li>
                                         <div class="comment">
                                             <div class="comment__avatar"> <img alt="Image" src="/static/base/img/avatar-round-1.png"> </div>
                                             <div class="comment__body">
-                                                <h5 class="type--fine-print">Anne Brady</h5>
-                                                <div class="comment__meta"> <span>10th May 2016</span><a href="#">Reply</a> </div>
-                                                <p> Affordances food-truck SpaceTeam unicorn disrupt integrate viral pair programming big data pitch deck intuitive intuitive prototype long shadow. Responsive hacker intuitive driven </p>
+                                                <h5 class="type--fine-print">@{{ feed.user.username }}</h5>
+                                                <div class="comment__meta"> <span>{{ feed.sent }}</span><a href="#comment_zone">Reply</a> </div>
+                                                <p> {{ feed.content }} </p>
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="comment">
-                                            <div class="comment__avatar"> <img alt="Image" src="/static/base/img/avatar-round-2.png"> </div>
-                                            <div class="comment__body">
-                                                <h5 class="type--fine-print">Kelly Dewitt</h5>
-                                                <div class="comment__meta"> <span>11th May 2016</span><a href="#">Reply</a> </div>
-                                                <p> Responsive hacker intuitive driven waterfall is so 2000 and late intuitive cortado bootstrapping venture capital. Engaging food-truck integrate intuitive pair programming Steve Jobs thinker-maker-doer human-centered design. </p>
-                                                <p> Affordances food-truck SpaceTeam unicorn disrupt integrate viral pair programming big data pitch deck intuitive intuitive prototype long shadow. Responsive hacker intuitive driven </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="comment">
-                                            <div class="comment__avatar"> <img alt="Image" src="/static/base/img/avatar-round-4.png"> </div>
-                                            <div class="comment__body">
-                                                <h5 class="type--fine-print">Luke Smith</h5>
-                                                <div class="comment__meta"> <span>11th May 2016</span><a href="#">Reply</a> </div>
-                                                <p> Unicorn disrupt integrate viral pair programming big data pitch deck intuitive intuitive prototype long shadow. Responsive hacker intuitive driven </p>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    {% endfor %}
+                                    
                                 </ul>
                             </div>
+                            {% if event.accept_feedback and can_give %}
                             <div class="comments-form">
-                                <h4>Leave a comment</h4>
-                                <form class="row">
-                                    <div class="col-md-6"> <label>Your Name:</label> <input type="text" name="Name" placeholder="Type name here"> </div>
-                                    <div class="col-md-6"> <label>Email Address:</label> <input type="email" name="email" placeholder="you@mailprovider.com"> </div>
-                                    <div class="col-md-12"> <label>Comment:</label> <textarea rows="4" name="Message" placeholder="Message"></textarea> </div>
+                                <h4>Leave a feedback</h4>
+                                <form class="row" method="POST">  
+                                    {% csrf_token %}                                  
+                                    <div class="col-md-12" id="comment_zone"><textarea rows="4" name="content" placeholder="Message"></textarea> </div>
+
                                     <div class="col-md-3"> <button class="btn btn--primary" type="submit">Submit Comment</button> </div>
                                 </form>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

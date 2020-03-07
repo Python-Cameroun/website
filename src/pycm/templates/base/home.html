@@ -1,4 +1,5 @@
 {% extends "base/base.html" %}
+{% load i18n %}
 
 {% block title %}Welcome{% endblock %}
 
@@ -8,11 +9,11 @@
                     <div class="row justify-content-between">
                         <div class="col-lg-5 col-md-7">
                             <div class="mt--2">
-                                <h1>Developpement des interfaces graphiques<br></h1>
-                                <p class="lead">Apprenez à developper des applications de bureau professionnelles et attrayantes avec Python et Qt<br></p>
-                                <a class="btn btn--primary type--uppercase" href="#customise-template"> <span class="btn__text">
-							Launch The Builder
-						</span> </a> <span class="block type--fine-print">or <a href="index.html">view the demos</a></span> </div>
+                                <h1>{{ event.name }}<br></h1>
+                                <p class="lead">{{ event.main_goal }}<br></p>
+                                <a class="btn btn--primary type--uppercase" href="{% url 'event' event.id %}"> <span class="btn__text">
+							{% trans "See more" %}
+						</span> </a> </div>
                         </div>
                         <div class="col-lg-7 col-md-5 col-12"> <img alt="Image" src="/static/base/img/device-2.png"> </div>
                     </div>
@@ -108,12 +109,12 @@
                             <div class="switchable__text">
                                 <h2>Follow us for news, updates and competitions</h2>
                                 <p class="lead"> Launching an attractive and scalable website quickly and affordably is important for modern startups — Stack offers massive value without looking 'bargain-bin'. </p>
-                                <a class="btn btn--icon bg--twitter" href="#"> <span class="btn__text">
+                                <a class="btn btn--icon bg--twitter" href="https://twitter.com/pythoncameroun/"> <span class="btn__text">
                             <i class="socicon socicon-twitter"></i>
                             Visit @pythoncameroun on Twitter
                         </span> </a><br><br><br>
 
-                        		<a class="btn btn--icon bg--facebook" href="#"> <span class="btn__text">
+                        		<a class="btn btn--icon bg--facebook" href="https://facebook.com/pythoncameroun/"> <span class="btn__text">
                             <i class="socicon socicon-facebook"></i>
                             Visit @pythoncameroun on Facebook
                         </span> </a>

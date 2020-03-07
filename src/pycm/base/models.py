@@ -69,11 +69,15 @@ class Event(models.Model):
              ('Worksop', 'Workshop')]
 
     name = models.CharField(max_length=255, null=True, blank=True)
-    description = models.TextField()
+    description = models.TextField(blank=True)
+    main_goal = models.TextField(blank=True)
     start = models.DateTimeField()
     end = models.DateTimeField()
     location = models.CharField(max_length=255, null=True, blank=True)
     type = models.CharField(max_length=255, null=True, blank=True)
+    featured = models.BooleanField(default=False)
+    accept_feedback = models.BooleanField(default=False)
+    image = models.ImageField(upload_to="events", null=True, blank=True)
     posted_by = models.ForeignKey(User, models.SET_NULL, null=True, blank=True)
 
 
@@ -85,3 +89,22 @@ class EventMedia(models.Model):
     url = models.CharField(max_length=255, null=True, blank=True)
     miniature = models.CharField(max_length=255, null=True, blank=True)
     event = models.ForeignKey(Event, models.CASCADE)
+
+
+class Feedback(models.Model):
+    """Model to represent feedbacks of an event"""
+    
+    user = models.ForeignKey(User, models.CASCADE)
+    event = models.ForeignKey(Event, models.CASCADE)
+    content = models.TextField()
+    sent = models.DateTimeField(auto_now_add=True)
+
+
+class EventContactInfo(models.Model):
+    
+    event = models.ForeignKey(Event, models.CASCADE)
+    address = models.TextField()
+    email = models.CharField(max_length=255)
+    number = models.CharField(max_length=255)
+    text = models.TextField()
+    opened = models.CharField(max_length=255)
