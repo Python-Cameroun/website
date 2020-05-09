@@ -1,6 +1,6 @@
 {% extends "base/base.html" %}
 
-{% block title %}Welcome{% endblock %}
+{% block title %}{{ event.name }}{% endblock %}
 
         	{% block main_content %}
             <section class="switchable bg--primary">
@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <section class="switchable bg--secondary">
                 <div class="container">
                     <div class="row justify-content-around">
@@ -81,15 +81,14 @@
                 <div class="container">
                     <div class="masonry">
                         <div class="masonry-filter-container text-center row justify-content-center align-items-center"> <span><strong>Gallery</strong></span>
-                            
+
                         </div>
                         <div class="masonry__container row masonry--active">
+                            {% for media in event.medias.all %}
                             <div class="masonry__item col-lg-4 col-6 filter-people" data-masonry-filter="People">
-                                <a href="/static/base/img/work-6.jpg" data-lightbox="Gallery 1"> <img alt="Image" src="/static/base/img/work-6.jpg"> </a>
+                                <a href="{{ media.url }}" data-lightbox="Gallery 1"> <img alt="Image" src="{{ media.url }}"> </a>
                             </div>
-                            <div class="masonry__item col-lg-4 col-6 filter-people" data-masonry-filter="People">
-                                <a href="/static/base/img/work-3.jpg" data-lightbox="Gallery 1"> <img alt="Image" src="/static/base/img/work-3.jpg"> </a>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -113,14 +112,14 @@
                                         </div>
                                     </li>
                                     {% endfor %}
-                                    
+
                                 </ul>
                             </div>
                             {% if event.accept_feedback and can_give %}
                             <div class="comments-form">
                                 <h4>Leave a feedback</h4>
-                                <form class="row" method="POST">  
-                                    {% csrf_token %}                                  
+                                <form class="row" method="POST">
+                                    {% csrf_token %}
                                     <div class="col-md-12" id="comment_zone"><textarea rows="4" name="content" placeholder="Message"></textarea> </div>
 
                                     <div class="col-md-3"> <button class="btn btn--primary" type="submit">Submit Comment</button> </div>
@@ -129,7 +128,7 @@
                             {% else %}
                             <div class="comments-form">
                                 <h4>Leave a feedback</h4>
-                                <div class="row">  
+                                <div class="row">
                                     <div class="col-md-3"> <a href="{% url 'signin' %}"><button class="btn btn--primary pl-3 pr-3" type="button">Login to comment</button></a> </div>
                                 </form>
                             </div>

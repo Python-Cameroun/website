@@ -35,15 +35,15 @@
                         <div class="col-md-6">
                             <div class="feature feature-5 boxed boxed--lg boxed--border"> <i class="icon icon-Pantone icon--lg"></i>
                                 <div class="feature__body">
-                                    <h5>Objectif 1<br></h5>
-                                    <p> Stack's visual style is simple yet distinct perfect for any project whether it be a basic marketing site, or multi-page company presence. </p> <a href="#">Learn More</a> </div>
+                                    <h5>{% trans "Promote" %}<br></h5>
+                                    <p>{% trans "Promote the usage of the Python in the Software Development and Science. Wheter it is in Web development, Desktop development or Data Science, show how good it is to use Python in these domains." %} </p> <a href="#social">{% trans "Learn more" %}</a> </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="feature feature--featured feature-5 boxed boxed--lg boxed--border"> <i class="icon icon-Fingerprint icon--lg"></i>
                                 <div class="feature__body">
-                                    <h5>Objectif 2<br></h5>
-                                    <p> Launching an attractive website quickly and affordably is important for modern startups — Stack offers massive value with modern styling. </p> <a href="#">Learn More</a> </div>
+                                    <h5>{% trans "Teach" %}<br></h5>
+                                    <p>{% trans "Teach to aspiring developers and scientist Python. Organize meetups and conferences to share the knowledge among Python enthusiasts. Let's the individual knowledge becomes the community knowledge." %}</p> <a href="{% url 'events' %}">{% trans "Learn More" %}</a> </div>
                             </div>
                         </div>
                     </div>
@@ -55,29 +55,29 @@
                         <div class="col-md-6">
                             <div class="feature feature-5 boxed boxed--lg boxed--border"> <i class="icon icon-Pantone icon--lg"></i>
                                 <div class="feature__body">
-                                    <h5>Objectif 3<br></h5>
-                                    <p> Stack's visual style is simple yet distinct perfect for any project whether it be a basic marketing site, or multi-page company presence. </p> <a href="#">Learn More</a> </div>
+                                    <h5>{% trans "Develop" %}<br></h5>
+                                    <p>{% trans "Develop inclusive open source projects. Open Source projects are a great way to move the community towards and reach the fixed goals." %}</p> <a href="#project">{% trans "Learn More" %}</a> </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="feature feature--featured feature-5 boxed boxed--lg boxed--border"> <i class="icon icon-Fingerprint icon--lg"></i>
                                 <div class="feature__body">
-                                    <h5>Objectif 4<br></h5>
-                                    <p> Launching an attractive website quickly and affordably is important for modern startups — Stack offers massive value with modern styling. </p> <a href="#">Learn More</a> </div>
+                                    <h5>{% trans "Meet" %}<br></h5>
+                                    <p>{% trans "Meet the local Python developers and Python Scientists. Follow the international events, meet the international community and leverage facilities to let local Pythonistas to assist PyCON events." %}</p> <a href="#">Learn More</a> </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="switchable feature-large bg--primary">
+            <section class="switchable feature-large bg--primary" id="project">
                 <div class="container">
                     <div class="row justify-content-around">
-                        <div class="col-md-6"> <img alt="Image" class="border--round box-shadow-wide" src="/static/base/img/landing-11.jpg"> </div>
+                        <div class="col-md-6"> <img alt="Image" class="border--round box-shadow-wide" src="{{ project.image.url }}"> </div>
                         <div class="col-md-6 col-lg-5">
                             <div class="switchable__text">
-                                <h2>Py-Learner<br></h2>
-                                <p class="lead">Py-Learner is a desktop application to learn Python.<br></p> <a href="#">Learn More »</a> </div>
-                        </div>                        
+                                <h2>{{ project.name }}<br></h2>
+                                <p class="lead">{{ project.description }}<br></p> <a href="{{ project.link }}">{% trans "Learn More" %}</a> </div>
+                        </div>
                     </div>
                     <div class="row mt-5">
                     	<div class="col-12 text-center"><a href=""><button class="btn btn-primary pl-4 pr-4">More projects</button></a></div>
@@ -102,13 +102,13 @@
                     </div>
                 </div>
             </section>
-            <section class="switchable bg--secondary">
+            <section class="switchable bg--secondary" id="social">
                 <div class="container">
                     <div class="row justify-content-between">
                         <div class="col-md-6 col-lg-5">
                             <div class="switchable__text">
-                                <h2>Follow us for news, updates and competitions</h2>
-                                <p class="lead"> Launching an attractive and scalable website quickly and affordably is important for modern startups — Stack offers massive value without looking 'bargain-bin'. </p>
+                                <h2>{% trans "Follow us for news, updates and competitions" %}</h2>
+                                <p class="lead"> {% trans "We are a highly living community. To stay connected and follow our daily activities, please Connect with us on Twitter and Facebook." %} </p>
                                 <a class="btn btn--icon bg--twitter" href="https://twitter.com/pythoncameroun/"> <span class="btn__text">
                             <i class="socicon socicon-twitter"></i>
                             Visit @pythoncameroun on Twitter

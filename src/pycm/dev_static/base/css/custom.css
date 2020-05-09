@@ -1,1 +1,7 @@
-/*! Place your custom styles here */
+li.active{
+    border-style: ridge;
+    border-color: #4a90e2;
+    padding: 4px 15px;
+    border-radius: 5%;
+    border-width: 1px;
+}

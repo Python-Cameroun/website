@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, reverse
 from django.views import View
 from base.forms import SignUpForm
-from base.models import User, Profile, Event, Feedback, EventMedia, EventContactInfo
+from base.models import (User, Profile, Event, Feedback, EventMedia,
+                         EventContactInfo, Project)
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from django.utils.translation import gettext as _
@@ -14,7 +15,8 @@ class HomeView(View):
 
     def get(self, request, *args, **kwargs):
         fea_event = Event.objects.filter(featured=True).last()
-        ctx = {'event':fea_event}
+        fea_project = Project.objects.all().first()
+        ctx = {'event':fea_event, 'project':fea_project}
         return render(self.request, "base/home.html", ctx)
 
 
@@ -66,7 +68,11 @@ class EventsView(View):
     """This is the view for signup"""
 
     def get(self, request, *args, **kwargs):
-        return render(self.request, "base/events.html")
+        events = Event.objects.all()
+        fea_event = events.filter(featured=True).last()
+        ctx = {'events':events, 'fea_event':fea_event,
+               'page_events':'active'}
+        return render(self.request, "base/events.html", ctx)
 
 
 class EventView(View):
@@ -75,8 +81,9 @@ class EventView(View):
     def get(self, request, *args, **kwargs):
         eid = self.kwargs.get('eid')
         try:
-            event = Event.objects.get(pk=eid)
-        except:
+            event = Event.objects.filter(pk=eid).prefetch_related('medias').first()
+        except Exception as e:
+            print(str(e))
             return Http404()
         
         info = EventContactInfo.objects.filter(event=event).last()
@@ -94,7 +101,7 @@ class EventView(View):
             should_login = True
         
         ctx = {'event': event, 'info':info, 'can_give':can_give,
-               'should_login':should_login}
+               'should_login':should_login, 'page_events':'active'}
         return render(self.request, "base/event.html", ctx)
     
     def post(self, request, *args, **kwargs):

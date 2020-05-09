@@ -1,7 +1,6 @@
 {% extends "base/base.html" %}
-{% load i18n %}
 
-{% block title %}{% trans "Events" %}{% endblock %}
+{% block title %}{% trans "Projects" %}{% endblock %}
 
         	{% block main_content %}
             <section class="switchable bg--primary">
@@ -9,13 +8,13 @@
                     <div class="row justify-content-between">
                         <div class="col-lg-5 col-md-7">
                             <div class="mt--2">
-                                <h1>{{ fea_event.name }}<br></h1>
-                                <p class="lead"> {{ fea_event.main_goal }} </p>
-                                <a class="btn btn--primary type--uppercase" href="{% url 'event' fea_event.id %}"> <span class="btn__text">
-                            {% trans "View more" %} </span> </a>
-                            </div>
+                                <h1>Developpement des interfaces graphiques<br></h1>
+                                <p class="lead"> Build lean, beautiful websites with a clean and contemporary look to suit a range of purposes. </p>
+                                <a class="btn btn--primary type--uppercase" href="#customise-template"> <span class="btn__text">
+                            Launch The Builder
+                        </span> </a> <span class="block type--fine-print">or <a href="index.html">view the demos</a></span> </div>
                         </div>
-                        <div class="col-lg-7 col-md-5 col-12"> <img alt="Image" src="{{ fea_event.image.url }}"> </div>
+                        <div class="col-lg-7 col-md-5 col-12"> <img alt="Image" src="/static/base/img/device-2.png"> </div>
                     </div>
                 </div>
             </section>

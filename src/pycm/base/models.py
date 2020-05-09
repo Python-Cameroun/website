@@ -51,6 +51,7 @@ class Project(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField()
     link = models.CharField(max_length=255, null=True, blank=True)
+    image = models.ImageField(upload_to="projects")
     members = models.ManyToManyField(User)
 
 
@@ -88,7 +89,7 @@ class EventMedia(models.Model):
     type = models.CharField(max_length=255, null=True, blank=True, choices=TYPES)
     url = models.CharField(max_length=255, null=True, blank=True)
     miniature = models.CharField(max_length=255, null=True, blank=True)
-    event = models.ForeignKey(Event, models.CASCADE)
+    event = models.ForeignKey(Event, models.CASCADE, related_name='medias')
 
 
 class Feedback(models.Model):
@@ -108,3 +109,10 @@ class EventContactInfo(models.Model):
     number = models.CharField(max_length=255)
     text = models.TextField()
     opened = models.CharField(max_length=255)
+
+
+class Partner(models.Model):
+    
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to="partners", width_field="img_width")
+    img_width = models.IntegerField(default=300)
