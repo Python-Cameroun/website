@@ -1,5 +1,6 @@
 {% extends "base/base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block title %}Welcome{% endblock %}
 
@@ -33,17 +34,17 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="feature feature-5 boxed boxed--lg boxed--border"> <i class="icon icon-Pantone icon--lg"></i>
+                            <div class="feature feature-5 boxed boxed--lg boxed--border"> <img src="{% static "base/img/speaker.png" %}" width="100px" alt="promote" />
                                 <div class="feature__body">
                                     <h5>{% trans "Promote" %}<br></h5>
                                     <p>{% trans "Promote the usage of the Python in the Software Development and Science. Wheter it is in Web development, Desktop development or Data Science, show how good it is to use Python in these domains." %} </p> <a href="#social">{% trans "Learn more" %}</a> </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="feature feature--featured feature-5 boxed boxed--lg boxed--border"> <i class="icon icon-Fingerprint icon--lg"></i>
+                            <div class="feature feature--featured feature-5 boxed boxed--lg boxed--border"> <img src="{% static "base/img/teaching.png" %}" width="100px" alt="teach" />
                                 <div class="feature__body">
                                     <h5>{% trans "Teach" %}<br></h5>
-                                    <p>{% trans "Teach to aspiring developers and scientist Python. Organize meetups and conferences to share the knowledge among Python enthusiasts. Let's the individual knowledge becomes the community knowledge." %}</p> <a href="{% url 'events' %}">{% trans "Learn More" %}</a> </div>
+                                    <p>{% trans "Teach to aspiring developers and scientists Python. Organize meetups and conferences to share the knowledge among Python enthusiasts. Let's the individual knowledge becomes the community knowledge." %}</p> <a href="{% url 'events' %}">{% trans "Learn More" %}</a> </div>
                             </div>
                         </div>
                     </div>
@@ -53,14 +54,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="feature feature-5 boxed boxed--lg boxed--border"> <i class="icon icon-Pantone icon--lg"></i>
+                            <div class="feature feature-5 boxed boxed--lg boxed--border"> <img src="{% static "base/img/development.png" %}" width="100px" alt="develop" />
                                 <div class="feature__body">
                                     <h5>{% trans "Develop" %}<br></h5>
-                                    <p>{% trans "Develop inclusive open source projects. Open Source projects are a great way to move the community towards and reach the fixed goals." %}</p> <a href="#project">{% trans "Learn More" %}</a> </div>
+                                    <p>{% trans "Develop inclusive open source projects. Open Source projects are a great way to move the community towards and reach the fixed goals. Find open-minded developers for your next project." %}</p> <a href="#project">{% trans "Learn More" %}</a> </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="feature feature--featured feature-5 boxed boxed--lg boxed--border"> <i class="icon icon-Fingerprint icon--lg"></i>
+                            <div class="feature feature--featured feature-5 boxed boxed--lg boxed--border"> <img src="{% static "base/img/meeting.png" %}" width="100px" alt="meet" />
                                 <div class="feature__body">
                                     <h5>{% trans "Meet" %}<br></h5>
                                     <p>{% trans "Meet the local Python developers and Python Scientists. Follow the international events, meet the international community and leverage facilities to let local Pythonistas to assist PyCON events." %}</p> <a href="#">Learn More</a> </div>
