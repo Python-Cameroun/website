@@ -1,0 +1,106 @@
+{% extends "base/base.html" %}
+
+{% block main_content %}
+<style>
+    .pagination {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.pagination a {
+    text-decoration: none;
+}
+
+.pagination-number {
+    padding: 0.5em 0.8em;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #6D85C7;
+}
+
+.pagination-number:hover,
+.pagination-current {
+    background-color: #3354AA;
+}
+
+.pagination-action {
+    margin: 0 0.1em;
+    display: inline-block;
+    padding: 0.5em 0.5em;
+    color: #B9B9B9;
+    font-size: 1.3em;
+}
+
+.pagination-action:hover,
+.pagination-previous,
+.pagination-next {
+    color: #3354AA;
+}
+</style>
+<section class="team-section text-center my-5">
+    <div class="container">
+        <div class="row">   
+            {% for user in users%}
+            <div class="col-lg-4 col-md-6 mb-lg-0 mb-5"> 
+                <div class="avatar mx-auto">
+                    <img src="#" class="rounded-circle z-depth-1"
+                    alt="Sample avatar" style="width: 150px;">
+                </div>
+                <h5 class="font-weight-bold mt-4 mb-3">
+                    {{user.username}}
+                </h5>
+                <a href="{% url 'profile' user.username %}" class="btn btn--primary type--uppercase"><span class="btn__text">Profil</span></a>
+            </div>
+            {% endfor%}
+        </div>
+    </div>  
+</section>
+<!--
+{%if users.has_other_pages%}
+<ul class="pagination">
+    {%if users.has_previous%}
+    <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+    {%else%}
+    <li><a href="#">&laquo;</a></li>
+    {%endif%}
+    {%for i in users.paginator.page_range%}
+    {%if users.number == i %}
+    <li> <span> {{i}} <span class="sr-only">(current)</span></span></li>
+    {%else%}
+    <li><a href="?page{{i}}">{{i}}</a></li>
+    {%endif%}
+    {%endfor%}
+    {%if users.has_next%}
+    <li><a href="?page={{users.next_page_number}}">&laquo;</a></li>
+    {%else%}
+    <li class="disabled"><span>&raquo;</span></li>
+    {%endif%}
+  </ul>
+{%endif%}-->
+<div class="pagination">
+    {% if users.has_previous %}
+        <a class="pagination-action" href="?page=1">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i> 
+        </a>
+        <a class="pagination-action" href="?page={{ users.previous_page_number }}">
+            <i class="fa fa-angle-left" aria-hidden="true">Previous</i>
+        </a>
+    {% endif %}
+    {% for num in users.paginator.page_range %}
+        {% if users.number == num %}
+            <span class="pagination-number pagination-current">{{ num }}</span>
+        {% elif num > users.number|add:'-3' and num < users.number|add:'3' %}
+            <a class="pagination-number" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+    {% if users.has_next %}
+        <a class="pagination-action" href="?page={{ users.next_page_number }}">
+            <i class="fa fa-angle-right" aria-hidden="true">Next</i>
+        </a>
+        <a class="pagination-action" href="?page={{ users.paginator.num_pages }}">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+</div>
+</center><br><br>
+{% endblock %}

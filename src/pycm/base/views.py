@@ -7,7 +7,9 @@ from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.http import Http404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger 
 import traceback
+
 
 
 class HomeView(View):
@@ -135,3 +137,43 @@ def logout_view(request):
     logout(request)
 
     return redirect(reverse('signin'))
+
+def profile_view(request, username):
+    user = User.objects.filter(username = username)
+    
+    profile = Profile.objects.get(user__username = username)
+   
+
+    projets = Project.objects.filter(members__username = username)
+
+    ctx = {'profile':profile,'username':username, 'projets':projets}
+
+    return render(request,'base/profile.html',ctx) 
+
+def projects(request):
+    return render(request,'base/projects.html')
+
+def members(request):
+    user_list = User.objects.all()
+    page = request.GET.get('page',1)
+
+    paginator = Paginator(user_list,2)
+
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        users = paginator.page(1)
+    except EmptyPage:
+        users = paginator.page(paginator.num_pages)
+
+    ctx = {'users':users}
+    return render(request, 'base/members.html',ctx)
+
+def project_members(request,name): #name est le nom du projet
+
+    try:
+        projet = Project.objects.get(name = name)
+    except Project.DoesNotExist:
+        projet = None
+    ctx = {'projet':projet}
+    return render(request, 'base/project_member.html',ctx)

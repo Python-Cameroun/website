@@ -10,5 +10,9 @@ urlpatterns = [
     path('signin/', SigninView.as_view(), name='signin'),
     path('events/', EventsView.as_view(), name='events'),
     path('event/<int:eid>/', EventView.as_view(), name='event'),
-    path('logout/', logout_view, name='logout')
+    path('logout/', logout_view, name='logout'),
+    path('profile/<str:username>',profile_view, name='profile'), 
+    path('projects/', projects, name='projects'),
+    path('members/', members, name='members'),
+    path('project_members/<str:name>',project_members, name='project_members'),
 ]
