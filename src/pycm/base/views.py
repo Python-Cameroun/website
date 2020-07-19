@@ -153,7 +153,7 @@ def projects(request):
     return render(request,'base/projects.html')
 
 def members(request):
-    user_list = User.objects.filter()
+    user_list = User.objects.filter(is_staff = False)
     page = request.GET.get('page',1)
 
     paginator = Paginator(user_list,20)
