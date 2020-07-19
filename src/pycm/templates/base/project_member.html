@@ -2,22 +2,24 @@
 
 {% block main_content %}
 <center>
-    <h2>Membres du Projet</h2>
-    <span>{{name}}</span>
+    <div style="margin-top: 50px;">
+        <h2>PROJECTS MEMBERS</h2>
+        <span>{{projet.name}}</span>
+    </div>
 </center>
 <section class="team-section text-center my-5">
     <div class="container">
         <div class="row">   
-            {% for pro in projet%}
+            {% for member in members%}
             <div class="col-lg-4 col-md-6 mb-lg-0 mb-5"> 
                 <div class="avatar mx-auto">
-                    <img src="#" class="rounded-circle z-depth-1"
+                    <img src="/static/base/img/avatar.png"  class="rounded-circle z-depth-1"
                     alt="Sample avatar" style="width: 150px;">
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">
-                    {{pro.members}}
+                    {{member}}
                 </h5>
-                <a href="{% url 'profile' user.username %}" class="btn btn--primary type--uppercase"><span class="btn__text">Profil</span></a>
+                <a href="{% url 'profile' member %}" class="btn btn--primary type--uppercase"><span class="btn__text">Profile</span></a>
             </div>
             {% endfor%}
         </div>

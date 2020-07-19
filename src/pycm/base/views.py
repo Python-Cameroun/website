@@ -3,6 +3,7 @@ from django.views import View
 from base.forms import SignUpForm
 from base.models import (User, Profile, Event, Feedback, EventMedia,
                          EventContactInfo, Project)
+from django.db.models import Q
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from django.utils.translation import gettext as _
@@ -139,11 +140,9 @@ def logout_view(request):
     return redirect(reverse('signin'))
 
 def profile_view(request, username):
-    user = User.objects.filter(username = username)
+
     
     profile = Profile.objects.get(user__username = username)
-   
-
     projets = Project.objects.filter(members__username = username)
 
     ctx = {'profile':profile,'username':username, 'projets':projets}
@@ -154,10 +153,10 @@ def projects(request):
     return render(request,'base/projects.html')
 
 def members(request):
-    user_list = User.objects.all()
+    user_list = User.objects.filter()
     page = request.GET.get('page',1)
 
-    paginator = Paginator(user_list,2)
+    paginator = Paginator(user_list,20)
 
     try:
         users = paginator.page(page)
@@ -169,11 +168,12 @@ def members(request):
     ctx = {'users':users}
     return render(request, 'base/members.html',ctx)
 
-def project_members(request,name): #name est le nom du projet
+def project_members(request, project_name): #name est le nom du projet
 
-    try:
-        projet = Project.objects.get(name = name)
-    except Project.DoesNotExist:
-        projet = None
-    ctx = {'projet':projet}
+   
+    projet = Project.objects.get(name = project_name)
+    members = projet.members.all()
+       
+    
+    ctx = {'members':members, 'projet':projet}
     return render(request, 'base/project_member.html',ctx)

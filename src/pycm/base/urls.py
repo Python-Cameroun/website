@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from base.views import *
+from .models import Project
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -14,5 +15,5 @@ urlpatterns = [
     path('profile/<str:username>',profile_view, name='profile'), 
     path('projects/', projects, name='projects'),
     path('members/', members, name='members'),
-    path('project_members/<str:name>',project_members, name='project_members'),
+    path('project_members/<str:project_name>',project_members, name='project_members'),
 ]

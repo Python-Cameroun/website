@@ -10,7 +10,7 @@
                         <div class="col-lg-8">
                             <div class="boxed boxed--lg boxed--border">
                                 <div class="text-block text-center">
-                                    <img alt="avatar" src="static/base/img/avatar-round-3.png" class="image--md" />
+                                    <img alt="avatar" src="/static/base/img/avatar.png"  class="image--md" />
                                     <span class="h5">{{username}}</span><!--username-->
                                     <span>{{profile.sexe}}</span><!--sexe-->
                                     <span class="label">PYCM-Member</span>
@@ -88,7 +88,7 @@
                                         <hr>
                                     </li>
                                 </ul>
-                                    <a href="{ % url 'project_members' project.name % }" class="btn btn--primary type--uppercase"><span class="btn__text">Projects Members</span></a>
+                                    <a href="{% url 'project_members' projet.name %}" class="btn btn--primary type--uppercase"><span class="btn__text">Projects Members</span></a>
                                 </div>
                             </div>
                             {%endfor%}
