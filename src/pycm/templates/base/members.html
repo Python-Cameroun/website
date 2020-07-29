@@ -54,7 +54,7 @@
                 <h5 class="font-weight-bold mt-4 mb-3">
                     {{user.username}}
                 </h5>
-                <a href="{% url 'profile' user.username %}" class="btn btn--primary type--uppercase"><span class="btn__text">Profil</span></a>
+                <a href="{% url 'profile' user.email %}" class="btn btn--primary type--uppercase"><span class="btn__text">Profil</span></a>
             </div>
             {% endfor%}
         </div>

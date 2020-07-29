@@ -61,7 +61,7 @@ class SigninView(View):
 
         if user is not None:
             login(request, user)
-            return redirect(reverse('home'))
+            return redirect('profile', email)
         else:
             messages.add_message(request, messages.ERROR, _('Invalid email or password'))
         return render(request, 'base/signin.html')
@@ -139,13 +139,19 @@ def logout_view(request):
 
     return redirect(reverse('signin'))
 
-def profile_view(request, username):
+def profile_view(request, email):
 
-    
-    profile = Profile.objects.get(user__username = username)
+    username = User.objects.get(email = email)
+
+    profile = Profile.objects.get(user__email = email)
     projets = Project.objects.filter(members__username = username)
 
-    ctx = {'profile':profile,'username':username, 'projets':projets}
+    if request.user.is_authenticated:
+        var = True
+    else:
+        var = False
+
+    ctx = {'profile':profile,'username':username, 'projets':projets, 'var':var}
 
     return render(request,'base/profile.html',ctx) 
 
@@ -153,7 +159,7 @@ def projects(request):
     return render(request,'base/projects.html')
 
 def members(request):
-    user_list = User.objects.filter()
+    user_list = User.objects.filter(is_staff = False)
     page = request.GET.get('page',1)
 
     paginator = Paginator(user_list,20)
