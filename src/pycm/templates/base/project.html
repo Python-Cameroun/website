@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% block title %}{{ projet.name }}{% endblock %}
+
+        	{% block main_content %}
+                <section class="switchable feature-large switchable--switch bg--primary">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-6 col-12">
+
+                                <img alt="{{ projet.name }}" class="border--round" src="{{ projet.image.url }}">
+
+                        </div>
+                        <div class="col-md-6 col-lg-5">
+                            <div class="switchable__text">
+                                <h2>{{ projet.name }}</h2>
+                                <p>{{ projet.description }} </p>
+                                <h3>Membres</h3>
+                                <ul>
+                                    {% for member in members %}
+                                         <li> <a href="#" >{{ member.username }}</a></li>
+                                    {% endfor %}
+
+                                </ul>
+                                {% if can %}
+                                    <a class="btn btn--sm btn--primary type--uppercase" href="{% url 'participate' projet.id %} "> <span class="btn__text">
+                                    participate
+                                </span> </a>
+                                {% elif should %}
+                                    <a class="btn btn--sm btn--primary type--uppercase" href="{% url 'signin' %}"> <span class="btn__text">
+                                    Login
+                                </span> </a>
+                                {% endif %}
+                               <h3> LIENS</h3>
+                                <a href="{{ projet.link }}"><i class="socicon-github"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            {% endblock %}

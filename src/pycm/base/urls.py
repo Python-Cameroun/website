@@ -10,5 +10,8 @@ urlpatterns = [
     path('signin/', SigninView.as_view(), name='signin'),
     path('events/', EventsView.as_view(), name='events'),
     path('event/<int:eid>/', EventView.as_view(), name='event'),
-    path('logout/', logout_view, name='logout')
+    path('logout/', logout_view, name='logout'),
+    path('Projects/', ProjectsView.as_view(), name='projects'),
+    path('project/<int:pid>/', ProjectView.as_view(), name='project'),
+    path('participate/<int:pid>/', participate, name='participate'),
 ]
