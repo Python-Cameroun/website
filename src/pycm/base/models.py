@@ -42,7 +42,7 @@ class Profile(models.Model):
     email = models.CharField(max_length=255, null=True, blank=True)
     sexe = models.CharField(max_length=255, null=True, blank=True)
     user = models.OneToOneField(User, models.CASCADE)
-    group = models.ManyToManyField(ChildGroup, through=Participation)
+    group = models.ManyToManyField(ChildGroup, through=Participation) 
 
 
 class Project(models.Model):

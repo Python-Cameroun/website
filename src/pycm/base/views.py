@@ -3,11 +3,14 @@ from django.views import View
 from base.forms import SignUpForm
 from base.models import (User, Profile, Event, Feedback, EventMedia,
                          EventContactInfo, Project)
+from django.db.models import Q
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.http import Http404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger 
 import traceback
+
 
 
 class HomeView(View):
@@ -58,7 +61,7 @@ class SigninView(View):
 
         if user is not None:
             login(request, user)
-            return redirect(reverse('home'))
+            return redirect('profile', email)
         else:
             messages.add_message(request, messages.ERROR, _('Invalid email or password'))
         return render(request, 'base/signin.html')
@@ -137,6 +140,52 @@ def logout_view(request):
     return redirect(reverse('signin'))
 
 
+def profile_view(request, email):
+
+    username = User.objects.get(email = email)
+
+    profile = Profile.objects.get(user__email = email)
+    projets = Project.objects.filter(members__username = username)
+
+    if request.user.is_authenticated:
+        var = True
+    else:
+        var = False
+
+    ctx = {'profile':profile,'username':username, 'projets':projets, 'var':var}
+
+    return render(request,'base/profile.html',ctx) 
+
+def projects(request):
+    return render(request,'base/projects.html')
+
+def members(request):
+    user_list = User.objects.filter(is_staff = False)
+    page = request.GET.get('page',1)
+
+    paginator = Paginator(user_list,20)
+
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        users = paginator.page(1)
+    except EmptyPage:
+        users = paginator.page(paginator.num_pages)
+
+    ctx = {'users':users}
+    return render(request, 'base/members.html',ctx)
+
+def project_members(request, project_name): #name est le nom du projet
+
+   
+    projet = Project.objects.get(name = project_name)
+    members = projet.members.all()
+       
+    
+    ctx = {'members':members, 'projet':projet}
+    return render(request, 'base/project_member.html',ctx)
+
+
 
 class ProjectsView(View):
     "This  class is for all projets"
@@ -187,9 +236,6 @@ def participate(request,*args,**kwargs):
         project.members.add(user)
 
     return redirect(reverse('projects'))
-
-
-
 
 
 

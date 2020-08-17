@@ -1,0 +1,103 @@
+{% extends "base/base.html" %}
+
+
+
+        {% block main_content %}
+        <div class="main-container">
+            <section class="bg--secondary space--sm">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="boxed boxed--lg boxed--border">
+                                <div class="text-block text-center">
+                                    <img alt="avatar" src="/static/base/img/avatar.png"  class="image--md" />
+                                    <span class="h5">{{username}}</span><!--username-->
+                                    <span>{{profile.sexe}}</span><!--sexe-->
+                                    <span class="label">PYCM-Member</span>
+                                    {% if var %}
+                                        <a href="#"><span class="label " style="margin-top: 35px;">Modify My Profil</span></a>
+                                    {% endif %}
+                                </div>
+                                <div class="text-block clearfix text-center">
+                                    <ul class="row row--list">
+                                        <li class="col-md-4"><!--Numero telephone-->
+                                            <span class="material-icons">call</span>
+                                            <span>{{profile.number}}</span>
+                                        </li>
+                                        <li class="col-md-4"><!--Whatsapp-->
+                                            <i class="socicon socicon-whatsapp icon icon--xs"></i>
+                                            <span>{{profile.whatsapp}}</span>
+                                        </li>
+                                        <li class="col-md-4"><!--twitter-->
+                                            <i class="socicon socicon-twitter icon icon--xs"></i>
+                                            <span>{{profile.twitter}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="text-block clearfix text-center">
+                                    <ul class="row row--list">
+                                        <li class="col-md-4"><!--telegram-->
+                                            <i class="socicon socicon-telegram icon icon--xs"></i>
+                                            <span>{{profile.telegram}}</span>
+                                        </li>
+                                        <li class="col-md-4"><!--facebook-->
+                                            <i class="socicon socicon-facebook icon icon--xs"></i>
+                                            <span>{{profile.facebook}}</span>
+                                        </li>
+                                        <li class="col-md-4"><!--skype-->
+                                            <i class="socicon socicon-skype icon icon--xs"></i>
+                                            <span>{{profile.skype}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="text-block clearfix text-center">
+                                    <ul class="row row--list">
+                                        <li class="col-md-4"><!--github-->
+                                            <i class="socicon socicon-github icon icon--xs"></i>
+                                            <span>{{profile.github}}</span>
+                                        </li>
+                                        <li class="col-md-4"><!--gitlab-->
+                                            <i class="socicon socicon-github icon icon--xs"></i>
+                                            <span>{{profile.gitlab}}</span>
+                                        </li>
+                                        <li class="col-md-4"><!--email-->
+                                            <i class="socicon socicon-mail icon icon--xs"></i>
+                                            <span>{{profile.email}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h4>Recent Activity</h4>
+                            {% for projet in projets%}
+                            <div class="boxed boxed--border">
+                                <ul>
+                                    <li class="clearfix">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-3 text-center">
+                                                <div class="icon-circle">
+                                                    <i class="material-icons">build</i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 col-7">
+                                                <p class="type--fine-print">{{projet.name}}</p>
+                                                <a href="#" class="block color--primary">{{projet.link}}</a>
+                                                <span>
+                                                    {{projet.description}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </li>
+                                </ul>
+                                    <a href="{% url 'project_members' projet.name %}" class="btn btn--primary type--uppercase"><span class="btn__text">Projects Members</span></a>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    {% endblock %} 

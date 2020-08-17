@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from base.views import *
+from .models import Project
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,7 +12,14 @@ urlpatterns = [
     path('events/', EventsView.as_view(), name='events'),
     path('event/<int:eid>/', EventView.as_view(), name='event'),
     path('logout/', logout_view, name='logout'),
+
+    path('profile/<str:email>',profile_view, name='profile'), 
+    path('projects/', projects, name='projects'),
+    path('members/', members, name='members'),
+    path('project_members/<str:project_name>',project_members, name='project_members'),
+
     path('Projects/', ProjectsView.as_view(), name='projects'),
     path('project/<int:pid>/', ProjectView.as_view(), name='project'),
     path('participate/<int:pid>/', participate, name='participate'),
+
 ]
