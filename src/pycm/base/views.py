@@ -139,6 +139,7 @@ def logout_view(request):
 
     return redirect(reverse('signin'))
 
+
 def profile_view(request, email):
 
     username = User.objects.get(email = email)
@@ -183,3 +184,58 @@ def project_members(request, project_name): #name est le nom du projet
     
     ctx = {'members':members, 'projet':projet}
     return render(request, 'base/project_member.html',ctx)
+
+
+
+class ProjectsView(View):
+    "This  class is for all projets"
+    def get(self, request):
+        projects = Project.objects.all()
+        ctx = {'projects':projects}
+        return render(self.request, "base/Projects.html", ctx)
+
+
+
+class ProjectView(View):
+
+    def get(self,request,*args, **kwargs):
+
+
+        pid = self.kwargs.get('pid')
+        project = Project.objects.filter(pk=pid).first()
+        members = User.objects.filter(project__id=pid)
+
+
+
+        if not self.request.user.is_authenticated :
+            can_participate = False
+            should_signin = True
+        else:
+            user = self.request.user
+
+            should_signin = False
+
+            if user in members:
+                print('********oui***********')
+                can_participate = False
+            else:
+                can_participate = True
+
+
+
+        ctx ={'projet': project ,'members':members,'can':can_participate,'should':should_signin}
+
+        return render(self.request, "base/project.html",ctx)
+
+
+def participate(request,*args,**kwargs):
+    pid = kwargs.get('pid')
+    if request.user.is_authenticated:
+        user = request.user
+        project = Project.objects.filter(pk=pid).first()
+        project.members.add(user)
+
+    return redirect(reverse('projects'))
+
+
+
