@@ -1,0 +1,293 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+body, html{
+    min-height: 100%;;
+    margin:0px;
+    font-size:12px;
+    font-family:joses;
+    font-weight:400;
+    width: 100%;
+    line-height: 1.3em;
+    font-size: 20px;
+    color:#666;
+    
+}
+
+.scrollbody section {
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+
+/* 
+.pimg1,.pimg2,.pimg3{
+    position:relative;
+    opacity:0.70;
+    background-position:center;
+    background-size:cover;
+    background-attachment:fixed;
+} */
+.land{
+    background-image:url('../images/shutterstock--library.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.landing{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.795);}
+ 
+
+
+@font-face{
+    font-family: flux;
+    src:url("../fonts/Flux Regular.otf");
+}
+@font-face{
+    font-family: joses;
+    src:url('../fonts/Roboto-Light.ttf');
+}
+.content{
+    display: table;
+    width: 100%;
+   min-height: 100%;
+}
+.inner{
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0px auto;
+    width: 100%;
+    text-align: center;
+    
+}
+a:hover,a:active{
+    text-decoration: none;
+    color:rgb(29, 190, 253);
+}
+a{
+    color:rgb(147, 192, 243);
+}
+.maintext{
+    font-size: 75px;
+    font-weight: bold;
+    color:rgb(20, 122, 35);
+    font-family: flux;
+
+}
+
+
+.btngrov{
+    padding:10px;
+    border:1px solid white;
+    margin:20px;
+    border-radius: 6px;
+    font-size:26px;
+}
+p.caption{
+    font-size:20px;
+    font-weight: bold;
+    margin:20px;
+    color:white;
+    font-family: flux;
+}
+
+ .navbar-default{
+    border:none;
+    background:none;
+    transition: all 0.5s ease-in-out;
+
+}
+
+#contact{
+    background: lightgrey url('../images/black-and-white-lights-abstract-curves.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+section{
+    min-height: 50vh;
+}
+
+.navbar-fixed-top{
+    background-color: black;
+
+}
+
+.navbar-fixed-top .navbar-brand img{
+    width: 100px;
+    height: 30px;
+
+    transition: all 0.5s ease-in-out;
+}
+.navbar-fixed-top #navbar #nav {
+   
+    transition: all 0.5s ease-in-out;
+    padding:10px;
+}
+.navbar-fixed-top #navbar #nav li a{
+
+    transition: all 0.5s ease-in-out;
+    padding-top:5px;
+    padding-bottom:5px;
+
+}
+h1,h2,h3,h4{
+    color: rgb(29, 190, 253);
+}
+h1,h2{
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+/* #main{
+    background-color:rgb(250, 247, 247);
+    padding:0px;
+    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.5)
+} */
+
+#coc{
+    background-color: black;
+    background-attachment: fixed;
+ color: rgb(199, 199, 199);
+ 
+    background-size: cover;
+}
+footer{
+    font-size: 13px;
+    line-height:1.3em;
+    text-align: center;
+    background-color: black;
+    margin:0px;
+    padding:20px;
+}
+#myModal{
+overflow-y: scroll;
+height: 100vh;
+scrollbar-base-color: blue;
+scroll-behavior: smooth;    
+scrollbar-track-color: pink;
+scroll-snap-type: mandatory;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+
+    transition: all 0.5s ease-in-out;
+    
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.884);}
+.navbar-default .navbar-toggle{
+    border-color:rgba(255, 255, 255, 0)!important;
+
+    transition: all 0.5s ease-in-out;
+}
+
+/* .collapse{
+    background: black;
+} */
+.navbar-brand>img {
+    display: block;}
+    .navbar-brand img{
+        width: 200px;
+        height: 90px;
+    transition: all 0.5s ease-in-out;
+    }
+
+    /* .navbar-fixed-top #navbar #nav li a:focus,.navbar-fixed-top #navbar #nav li a:active{
+background: rgb(29, 190, 253)!important;
+
+} */
+#nav{
+    padding:10px;
+    transition: all 0.5s ease-in-out;
+}
+#nav li a{
+    transition: all 0.5s ease-in-out;
+    color:white;
+    margin:2px;
+    border-bottom:2px solid rgba(29, 193, 253, 0);
+    transition: border 0.3s;
+    
+}
+#nav li a:hover,#nav li a:active,#nav li a:focus{
+    border-bottom:2px solid rgb(29, 190, 253);
+}
+.navbar-fixed-top #navbar #nav li a:focus, .navbar-fixed-top #navbar #nav li a:active{
+    border-bottom:2px solid rgb(29, 190, 253);
+}
+.sponsor{
+    background-color: gainsboro;
+    vertical-align: middle;
+    padding:20px;
+}
+.social .fa{    padding:3%;
+    border-radius: 50%;
+    background-color: rgba(29, 193, 253, 0.897);
+    color:rgb(255, 255, 255);
+}
+.social a{
+    margin: 10%;
+}
+.fa-heart{
+    color:tomato;
+
+}
+.fa-hand-o-up{
+   
+    padding:1px;
+
+}
+.fa-check{
+    color:green;
+    font-size: 20px;
+    padding:5px;
+    font-weight: lighter;
+
+}
+#scrollTop{
+    position: fixed;
+    color:rgb(255, 255, 255);
+    bottom:30px;
+    right: 30px;
+    opacity:0.6;
+    padding:15px;
+    border-radius: 50%;
+    background-color: rgb(18, 185, 214);
+}
+ #scrollTop:hover{
+    color:rgb(8, 105, 52);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.521)
+}
+
+
+@media  screen and (max-width: 509px) {
+    .maintext{
+        font-size: 35px;
+        font-weight: bold;
+        color:rgb(20, 122, 35);
+    }
+
+    .timer{
+        display: none;
+    }
+    .social .fa{    padding:3%;
+        border-radius: 50%;
+    margin:10px;}
+    .social a{
+        margin: 2%;
+    }
+
+
+    #scrollTop{
+        color:rgb(255, 255, 255);
+        bottom:10px;
+        right: 10px;
+        opacity:0.6;
+        padding:5px;
+        font-size: 12px;
+        }
+
+}

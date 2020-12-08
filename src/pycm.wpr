@@ -1,0 +1,36 @@
+#!wing
+#!version=7.0
+##################################################################
+# Wing project file                                              #
+##################################################################
+[project attributes]
+debug.launch-configs = (2,
+                        {'launch-6YKcGvJXALRdogoZ': ({},
+        {'buildcmd': ('project',
+                      ('',
+                       '')),
+         'env': ('project',
+                 []),
+         'name': u'Django runserver',
+         'pyexec': ('project',
+                    ''),
+         'pypath': ('project',
+                    []),
+         'pyrunargs': ('project',
+                       '-u'),
+         'runargs': 'runserver 8000',
+         'rundir': ('project',
+                    '')})})
+proj.debug-sub-processes = True
+proj.directory-list = [{'dirloc': loc('pycm'),
+                        'excludes': (),
+                        'filter': '*',
+                        'include_hidden': False,
+                        'recursive': True,
+                        'watch_for_changes': True}]
+proj.file-type = 'shared'
+proj.launch-config = {loc('pycm/manage.py'): ('custom',
+        ('',
+         'launch-6YKcGvJXALRdogoZ'))}
+proj.main-file = loc('pycm/manage.py')
+testing.test-framework = {loc('pycm/manage.py'): ':internal djangotest'}

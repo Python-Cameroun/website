@@ -1,0 +1,621 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"al",
+				"alt\tAttr"
+			],
+			[
+				"bor",
+				"border-style\tproperty"
+			],
+			[
+				"a",
+				"active \tBootstrap 4 Class"
+			],
+			[
+				"m",
+				"m-3 \tBootstrap 4 Class"
+			],
+			[
+				"w",
+				"w-100 \tBootstrap 4 Class"
+			],
+			[
+				"col-md",
+				"col-md-9 \tBootstrap 4 Class"
+			],
+			[
+				"va",
+				"value\tAttr"
+			],
+			[
+				"di",
+				"div\tTag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "pycm/templates/base/home.html",
+			"settings":
+			{
+				"buffer_size": 8445,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "pycm/templates/base/projects.html",
+			"settings":
+			{
+				"buffer_size": 2803,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "pycm/templates/base/events.html",
+			"settings":
+			{
+				"buffer_size": 2658,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "pycm/templates/base/event.html",
+			"settings":
+			{
+				"buffer_size": 8315,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "pycm/templates/base/base.html",
+			"settings":
+			{
+				"buffer_size": 9796,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "pycm/dev_static/base/css/custom.css",
+			"settings":
+			{
+				"buffer_size": 134,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Install ",
+				"Package Control: Install Package"
+			],
+			[
+				"Insta",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/jefcolbi/Projets/Community/pycm/src/pycm/templates",
+		"/home/jefcolbi/Projets/Community/pycm/src/pycm/templates/base",
+		"/home/jefcolbi/Projets/Community/pycm/src/pycm/dev_static",
+		"/home/jefcolbi/Projets/Community/pycm/src/pycm/dev_static/base",
+		"/home/jefcolbi/Projets/Community/pycm/src/pycm/dev_static/base/css"
+	],
+	"file_history":
+	[
+		"/home/jefcolbi/Téléchargements/photo_2020-05-10_15-32-10(1).txt",
+		"/home/jefcolbi/Projets/Yaknema/yaknema/src/yaknema/templates/yaknema/index.html",
+		"/home/jefcolbi/Téléchargements/photo_2020-05-10_15-32-10.xlsx",
+		"/home/jefcolbi/Projets/Yaknema/yaknema/src/front/src/index.html",
+		"/home/jefcolbi/Projets/Yaknema/yaknema/src/front/dist/index.css",
+		"/home/jefcolbi/Projets/Perso/anti-eneo/anti_eneo.py",
+		"/home/jefcolbi/Projets/Yaknema/zoutil/src/zoutil/templates/account/logout.html",
+		"/home/jefcolbi/Projets/Yaknema/zoutil/src/zoutil/templates/dashboard/write.html",
+		"/home/jefcolbi/Projets/Yaknema/zoutil/src/zoutil/templates/account/signup.html",
+		"/home/jefcolbi/Projets/Yaknema/yaknema/src/front/dist/index.html"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"href=./assets/"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"href=/static/yaknema/assets/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "pycm/templates/base/home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8445,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4109,
+								4109
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "pycm/templates/base/projects.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2803,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								71,
+								71
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "pycm/templates/base/events.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2658,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								921,
+								921
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "pycm/templates/base/event.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8315,
+						"regions":
+						{
+							"col_0078FFFF":
+							{
+								"flags": 16,
+								"regions":
+								[
+									[
+										3457,
+										3464
+									]
+								],
+								"scope": "col_0078FFFF"
+							},
+							"col_0078FFFF_icon":
+							{
+								"flags": 16,
+								"icon": "Packages/User/Color Highlight.cache/col_0078FFFF_circle.png",
+								"regions":
+								[
+									[
+										2326,
+										2326
+									]
+								],
+								"scope": "col_gutter"
+							},
+							"col_00FF6AFF":
+							{
+								"flags": 16,
+								"regions":
+								[
+									[
+										3669,
+										3676
+									]
+								],
+								"scope": "col_00FF6AFF"
+							},
+							"col_00FF6AFF_icon":
+							{
+								"flags": 16,
+								"icon": "Packages/User/Color Highlight.cache/col_00FF6AFF_circle.png",
+								"regions":
+								[
+									[
+										2326,
+										2326
+									]
+								],
+								"scope": "col_gutter"
+							},
+							"col_FF0300FF":
+							{
+								"flags": 16,
+								"regions":
+								[
+									[
+										3071,
+										3078
+									],
+									[
+										3274,
+										3281
+									]
+								],
+								"scope": "col_FF0300FF"
+							},
+							"col_FF0300FF_icon":
+							{
+								"flags": 16,
+								"icon": "Packages/User/Color Highlight.cache/col_FF0300FF_circle.png",
+								"regions":
+								[
+									[
+										2326,
+										2326
+									]
+								],
+								"scope": "col_gutter"
+							},
+							"col_FFBB00FF":
+							{
+								"flags": 16,
+								"regions":
+								[
+									[
+										2643,
+										2650
+									]
+								],
+								"scope": "col_FFBB00FF"
+							},
+							"col_FFBB00FF_icon":
+							{
+								"flags": 16,
+								"icon": "Packages/User/Color Highlight.cache/col_FFBB00FF_circle.png",
+								"regions":
+								[
+									[
+										2326,
+										2326
+									]
+								],
+								"scope": "col_gutter"
+							},
+							"col_FFC200FF":
+							{
+								"flags": 16,
+								"regions":
+								[
+									[
+										2863,
+										2870
+									]
+								],
+								"scope": "col_FFC200FF"
+							},
+							"col_FFC200FF_icon":
+							{
+								"flags": 16,
+								"icon": "Packages/User/Color Highlight.cache/col_FFC200FF_circle.png",
+								"regions":
+								[
+									[
+										2326,
+										2326
+									]
+								],
+								"scope": "col_gutter"
+							}
+						},
+						"selection":
+						[
+							[
+								5525,
+								5525
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1173.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "pycm/templates/base/base.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3675,
+								3675
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 561.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "pycm/dev_static/base/css/custom.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 134,
+						"regions":
+						{
+							"col_4A90E2FF":
+							{
+								"flags": 16,
+								"regions":
+								[
+									[
+										54,
+										61
+									]
+								],
+								"scope": "col_4A90E2FF"
+							},
+							"col_4A90E2FF_icon":
+							{
+								"flags": 16,
+								"icon": "Packages/User/Color Highlight.cache/col_4A90E2FF_circle.png",
+								"regions":
+								[
+									[
+										36,
+										36
+									]
+								],
+								"scope": "col_gutter"
+							}
+						},
+						"selection":
+						[
+							[
+								61,
+								61
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/CSS (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "pycm.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 182.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
